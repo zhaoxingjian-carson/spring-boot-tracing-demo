@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: "http-service2"
+  sleuth:
+    propagation.type: W3C
+    enabled: true
+    otel:
+      config:
+        trace-id-ratio-based: 1.0
+      exporter:
+        otlp:
+          endpoint: http://192.168.131.129:4317
+#          endpoint: http://localhost:4317
+      #          endpoint: http://localhost:55678
+      multiple-tracer-configs-detector-enabled: false
+
+server:
+  port: 8081
+  profiles:
+    active: dev
